@@ -14,10 +14,9 @@ function App() {
 	const { loading, error, jobs, hasNextPage } = useFetchJobs(params, page);
 
 	function handleParamChange(e, inputs) {
-		// e.preventDefault();
 		const param = e.target.name;
 		const value = e.target.value;
-		console.log(value);
+
 		setPage(1);
 		setParams((prevParams) => {
 			return { ...prevParams, [param]: value };
@@ -35,11 +34,11 @@ function App() {
 					<Spinner animation='border' variant='success' />
 				</div>
 			)}
-			{error && <h1>Error! Try Again</h1>}
-			{jobs.length !== 0 ? (
-				jobs.map((job) => <Job key={job.id} job={job} />)
-			) : (
+			{error && <h1>Error! To Many Request :-( Try Letter</h1>}
+			{jobs.length === 0 ? (
 				<Alert variant='danger'>Ops! No jobs found. Please Try again!</Alert>
+			) : (
+				jobs.map((job) => <Job key={job.id} job={job} />)
 			)}
 			<JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
 		</Container>

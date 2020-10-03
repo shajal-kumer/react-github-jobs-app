@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Form, Col, Button } from 'react-bootstrap';
+import React from 'react';
+import { Form, Col } from 'react-bootstrap';
 
 export default function SearchForm({ params, onParamChange, inputFocusIn }) {
 	return (
