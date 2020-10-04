@@ -13,7 +13,7 @@ function App() {
 	const [inputFocusIn, setInputFocusIn] = useState(false);
 	const { loading, error, jobs, hasNextPage } = useFetchJobs(params, page);
 
-	function handleParamChange(e, inputs) {
+	function handleParamChange(e) {
 		const param = e.target.name;
 		const value = e.target.value;
 
